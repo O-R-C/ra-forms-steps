@@ -1,0 +1,30 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+
+  font-size: 1.2rem;
+
+  & > div {
+    flex: 1;
+  }
+}
+
+.item:nth-child(n + 2) {
+  border-top: 1px solid #000;
+}
+
+div.controls {
+  flex: 0;
+  display: flex;
+  gap: 0.5rem;
+
+  & > button {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    background-color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+  }
+}

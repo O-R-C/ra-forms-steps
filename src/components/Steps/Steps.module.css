@@ -1,0 +1,7 @@
+.steps {
+  width: 800px;
+  margin: 100px auto 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

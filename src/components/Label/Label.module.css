@@ -1,0 +1,19 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input {
+  padding: 0.25rem 0.5rem;
+  background-color: inherit;
+  font-size: inherit;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: #000;
+}
