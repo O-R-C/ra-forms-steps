@@ -7,18 +7,16 @@ import Training from './Training'
 import styles from './Steps.module.css'
 
 const Steps = ({ data = [] }) => {
-  const [workout, setWorkout] = useState(data)
+  const [workout, setWorkout] = useState(data.map((item) => new Training(item)))
   const [newTraining, setNewTraining] = useState({ date: '', distance: null })
 
   const addWorkout = (training) => {
     setNewTraining({ date: '', distance: null })
-    setWorkout([...workout, new Training(Object.fromEntries(training))])
+    setWorkout([...workout, new Training(Object.fromEntries(training))].sort((a, b) => (a.date > b.date ? -1 : 1)))
   }
 
   const onChange = (event) => {
     const { name, value } = event.target
-    console.log('🚀 ~ value:', value)
-    console.log('🚀 ~ name:', name)
 
     setNewTraining({
       ...newTraining,

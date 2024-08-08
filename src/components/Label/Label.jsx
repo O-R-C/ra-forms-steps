@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styles from './Label.module.css'
 
-const Label = ({ title, name, type, value, onChange }) => {
+const Label = ({ title, name, type, value, onChange, ...props }) => {
   return (
     <label className={styles.label}>
       {title}
@@ -12,6 +12,7 @@ const Label = ({ title, name, type, value, onChange }) => {
         value={value || ''}
         onChange={onChange}
         required
+        {...props}
       />
     </label>
   )
@@ -19,7 +20,7 @@ const Label = ({ title, name, type, value, onChange }) => {
 
 Label.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

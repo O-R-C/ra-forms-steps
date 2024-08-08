@@ -20,6 +20,7 @@ const Form = ({ addWorkout, newTraining: { date, distance }, onChange }) => {
         title='Дата (ДД.ММ.ГГ)'
         onChange={onChange}
         value={date}
+        {...{ max: '9999-12-31' }}
       />
       <Label
         type='number'
@@ -36,8 +37,8 @@ const Form = ({ addWorkout, newTraining: { date, distance }, onChange }) => {
 Form.propTypes = {
   addWorkout: PropTypes.func.isRequired,
   newTraining: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    distance: PropTypes.number.isRequired,
+    date: PropTypes.string,
+    distance: PropTypes.number,
   }),
   onChange: PropTypes.func.isRequired,
 }
