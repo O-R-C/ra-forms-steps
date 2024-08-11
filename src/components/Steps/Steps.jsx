@@ -4,6 +4,7 @@ import Workout from '../Workout/Workout'
 import Form from '../Form/Form'
 import Training from './Training'
 import addWorkout from './addWorkout'
+import onClickList from './onClickList'
 import styles from './Steps.module.css'
 
 const Steps = ({ data = [] }) => {
@@ -13,8 +14,7 @@ const Steps = ({ data = [] }) => {
   const handleSubmit = (training) => {
     setNewTraining({ date: '', distance: null })
 
-    const newTraining = new Training(Object.fromEntries(training))
-    addWorkout(workout, setWorkout, newTraining)
+    addWorkout(workout, setWorkout, new Training(Object.fromEntries(training)))
   }
 
   const onChange = (event) => {
@@ -26,20 +26,8 @@ const Steps = ({ data = [] }) => {
     })
   }
 
-  const onClickList = ({ id, button }) => {
-    if (button === 'EDIT') onEdit(id)
-    if (button === 'DELETE') onDelete(id)
-  }
-
-  const onDelete = (id) => {
-    setWorkout(workout.filter((item) => item.id !== id))
-  }
-
-  const onEdit = (id) => {
-    const { date, distance } = workout.find((item) => item.id === id)
-
-    setNewTraining({ date, distance })
-    onDelete(id)
+  const handleClickList = (data) => {
+    onClickList(data, setWorkout, workout, setNewTraining)
   }
 
   return (
@@ -47,7 +35,7 @@ const Steps = ({ data = [] }) => {
       <Form {...{ handleSubmit, newTraining, onChange }} />
       <Workout
         workout={workout.sort((a, b) => (a.date > b.date ? -1 : 1))}
-        onClickList={onClickList}
+        onClickList={handleClickList}
       />
     </div>
   )
