@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import Label from '../Label/Label'
 import styles from './Form.module.css'
 
-const Form = ({ addWorkout, newTraining: { date, distance }, onChange }) => {
+const Form = ({ handleSubmit, newTraining: { date, distance }, onChange }) => {
   const onSubmit = (event) => {
     event.preventDefault()
 
-    addWorkout(new FormData(event.target))
+    handleSubmit(new FormData(event.target))
   }
 
   return (
@@ -36,7 +36,7 @@ const Form = ({ addWorkout, newTraining: { date, distance }, onChange }) => {
 
 Form.propTypes = {
   onChange: PropTypes.func.isRequired,
-  addWorkout: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   newTraining: PropTypes.shape({
     date: PropTypes.string,
     distance: PropTypes.number,

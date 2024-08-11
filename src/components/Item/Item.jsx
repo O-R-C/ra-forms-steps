@@ -19,7 +19,7 @@ const Item = ({ item }) => {
 
 Item.propTypes = {
   item: PropTypes.shape({
-    date: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
     formatDate: PropTypes.string.isRequired,
     distance: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired,
