@@ -28,6 +28,7 @@ const Form = ({ handleSubmit, newTraining: { date, distance }, onChange }) => {
         title='Пройдено км'
         onChange={onChange}
         value={distance}
+        {...{ min: 0, step: 0.01 }}
       />
       <button className={styles.save}>OK</button>
     </form>

@@ -31,7 +31,7 @@ const Steps = ({ data = [] }) => {
   }
 
   const handleClickList = (data) => {
-    onClickList(data, setWorkout, workout, setNewTraining)
+    onClickList(data, workout, setWorkout, setNewTraining)
   }
 
   return (

@@ -1,18 +1,17 @@
-const onClickList = (data, setWorkout, workout, setNewTraining) => {
+const onClickList = (data, workout, setWorkout, setNewTraining) => {
   const { id, button } = data
-  if (button === 'EDIT') onEdit(id, setWorkout, workout)
-  if (button === 'DELETE') onDelete(id, setWorkout, workout, setNewTraining)
+  if (button === 'EDIT') onEdit(id, workout, setWorkout, setNewTraining)
+  if (button === 'DELETE') onDelete(id, workout, setWorkout)
 }
 
-const onDelete = (id, setWorkout, workout) => {
+const onDelete = (id, workout, setWorkout) => {
   setWorkout(workout.filter((item) => item.id !== id))
 }
 
-const onEdit = (id, setWorkout, workout, setNewTraining) => {
+const onEdit = (id, workout, setWorkout, setNewTraining) => {
   const { date, distance } = workout.find((item) => item.id === id)
-
   setNewTraining({ date, distance })
-  onDelete(id)
+  onDelete(id, workout, setWorkout)
 }
 
 export default onClickList
