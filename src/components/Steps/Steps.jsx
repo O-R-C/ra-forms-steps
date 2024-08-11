@@ -7,13 +7,17 @@ import addWorkout from './addWorkout'
 import onClickList from './onClickList'
 import styles from './Steps.module.css'
 
+const defaultTraining = {
+  date: '',
+  distance: null,
+}
+
 const Steps = ({ data = [] }) => {
   const [workout, setWorkout] = useState(data.map((item) => new Training(item)))
-  const [newTraining, setNewTraining] = useState({ date: '', distance: null })
+  const [newTraining, setNewTraining] = useState(defaultTraining)
 
   const handleSubmit = (training) => {
-    setNewTraining({ date: '', distance: null })
-
+    setNewTraining(defaultTraining)
     addWorkout(workout, setWorkout, new Training(Object.fromEntries(training)))
   }
 
