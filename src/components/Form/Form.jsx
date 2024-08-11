@@ -35,12 +35,12 @@ const Form = ({ addWorkout, newTraining: { date, distance }, onChange }) => {
 }
 
 Form.propTypes = {
+  onChange: PropTypes.func.isRequired,
   addWorkout: PropTypes.func.isRequired,
   newTraining: PropTypes.shape({
     date: PropTypes.string,
     distance: PropTypes.number,
   }),
-  onChange: PropTypes.func.isRequired,
 }
 
 export default Form

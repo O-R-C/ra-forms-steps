@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
-import moment from 'moment'
 import styles from './Item.module.css'
 
 const Item = ({ item }) => {
   return (
     <li className={styles.item}>
-      <div className={styles.date}>{moment(item.date).format('DD.MM.YYYY')}</div>
+      <div className={styles.date}>{item.formatDate}</div>
       <div className={styles.distance}>{item.distance}</div>
       <div
         className={styles.controls}
@@ -21,6 +20,7 @@ const Item = ({ item }) => {
 Item.propTypes = {
   item: PropTypes.shape({
     date: PropTypes.number.isRequired,
+    formatDate: PropTypes.string.isRequired,
     distance: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired,
   }),

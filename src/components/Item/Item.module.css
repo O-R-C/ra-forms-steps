@@ -28,3 +28,11 @@ div.controls {
     cursor: pointer;
   }
 }
+
+.edit {
+  color: gray;
+}
+
+.delete {
+  color: black;
+}
